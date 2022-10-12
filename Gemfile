@@ -57,10 +57,14 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print'
+  gem "capistrano", "~> 3.11", require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler', '~> 1.5'
+  gem 'capistrano-rails', '~> 1.4', require: false
 end
 
-group  :production do
-  gem 'pg'
+group :production do
+  gem 'mysql2' # , '~> 0.3.18'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
