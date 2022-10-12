@@ -1,0 +1,50 @@
+<h1><%=t('messages.listing', model: @archives.model_name.human(count:2))%></h1>
+
+
+<div class="x_panel">
+    <div class="x_title">
+    <%# <h2>Hover rows <small>Try hovering over the rows</small></h2> %>
+    
+    <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <table class="table table-hover">
+        <thead>
+      
+            <%# <th> #</th> %>
+            <th><%=translate_attribute(@archives, :title)%></th>
+            <th><%=translate_attribute(@archives, :description)%></th>
+            <th>
+                <%=link_to new_admins_backoffice_archive_path, class:"btn btn-success btn-circle" do%>
+                    <i class="fas fa-plus"></i>
+                <%end%>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @archives.each do |archive|%>
+            <tr>
+                <%# <td><%=archive.id%>
+                <td><%=archive.title%></td>
+                <td><%=archive.description%></td>
+                <td style="width:120px">
+                    <%=link_to admins_backoffice_archive_path(archive), class:"btn btn-primary btn-circle" do%>
+                        <i class="fas fa-edit"></i>
+                    <%end%>
+
+                  
+                    
+                    <%=link_to admins_backoffice_archive_path(archive), method: :delete, 
+                        class:"btn btn-danger btn-circle", 
+                        data: {confirm:t('messages.confirm_with', item: archive.title)} do%>
+                        <i class="fas fa-trash"></i>
+                    <%end%>
+                </td>
+            </tr>
+        <%end%>    
+        </tbody>
+    </table>
+    
+      <%= paginate @archives %>
+    </div>
+</div>

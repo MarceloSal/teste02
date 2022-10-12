@@ -1,0 +1,61 @@
+
+
+<h1>Arquivos</h1>
+
+
+<div class="x_panel">
+    <div class="x_title">
+    <%# <h2>Hover rows <small>Try hovering over the rows</small></h2> %>
+    
+    <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <table class="table table-hover">
+        <thead>
+
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Arquivo</th>
+        <tr>
+        
+        </thead>
+        
+        <tbody>
+            <tr> 
+                <th><%=@archive.id%></th>   
+                <th><%=@archive.title%></th>
+                <th><%= @archive.description %></th>
+                <th><%= link_to 'Download', @archive.file%></th>
+            </tr>
+        </tbody>
+       
+    </table>
+         <tr>
+            <td style="width:120px">
+                <%=link_to 'Voltar', admins_backoffice_archives_path, class:"btn btn-primary"%>
+            </td>
+        </tr>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

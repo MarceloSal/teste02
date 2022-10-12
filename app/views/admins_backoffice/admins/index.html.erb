@@ -1,0 +1,73 @@
+<h1><%=t('messages.listing', model: @admins.model_name.human(count:2))%></h1>
+
+
+<style>
+        @media (max-width:517px){
+            .smalling{
+                font-size:.7em;
+            }
+        }
+</style>
+<style>
+        @media (max-width:407px){
+            .smalling{
+                font-size:.5em;
+            }
+        }
+</style>
+
+<style>
+        @media (max-width:335px){
+            .smalling{
+                font-size:.4em;
+            }
+        }
+</style>
+<div class="x_panel">
+    <div class="x_title">
+    <%# <h2>Hover rows <small>Try hovering over the rows</small></h2> %>
+    
+    <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <table class="table table-hover">
+    
+        <thead class="smalling">
+        <tr>
+            <%# <th>#</th> %>
+            <th><%=translate_attribute(@admins, :first_name)%></th>
+            <th><%=translate_attribute(@admins, :last_name)%></th>
+            <th class="email"><%=translate_attribute(@admins, :email)%></th>
+            <th>
+                <%=link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do%>
+                    <i class="fas fa-plus"></i>
+                <%end%>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="smalling">
+        <% @admins.each do |admin|%>
+            <tr>
+                <%# <td><%=admin.id%>
+                <td><%=admin.first_name%></td>
+                <td><%=admin.last_name%></td>
+                <td class="email"><%=admin.email%></td>
+                <td style="width:120px">
+                    <%=link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle" do%>
+                        <i class="fas fa-edit"></i>
+                    <%end%>
+                    
+                    <%=link_to admins_backoffice_admin_path(admin), method: :delete,
+                         class:"btn btn-danger btn-circle", 
+                         data: {confirm:t('messages.confirm_with', item: admin.first_name)} do%>
+                        <i class="fas fa-trash"></i>
+                    <%end%>
+                </td>
+            </tr>
+        <%end%>    
+        </tbody>
+    </table>
+    
+    <%= paginate @admins %>
+    </div>
+</div>

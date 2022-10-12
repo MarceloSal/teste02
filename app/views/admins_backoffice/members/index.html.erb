@@ -1,0 +1,65 @@
+
+<h1><%=t('messages.listing', model: @members.model_name.human(count:2))%></h1>
+<style>
+        @media (max-width:1064px){
+            .hidding{
+                display:none;
+            }
+        }
+</style>
+
+<div class="x_panel">
+    <div class="x_title">
+    <%# <h2>Hover rows <small>Try hovering over the rows</small></h2> %>
+    
+    <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <%# <th>#</th> %>
+            <%# <th>Avatar</th> %>
+            <th><%=translate_attribute(@members, :first_name)%></th>
+            <th><%=translate_attribute(@members, :last_name)%></th>
+            <th class="hidding"><%=translate_attribute(@members, :email)%></th>
+            <th class="hidding"><%=translate_attribute(@members, :cell_phone)%></th>
+            <th class="hidding"><%=translate_attribute(@members, :birthdate)%></th>
+            <th class="hidding"><%=translate_attribute(@members, :address)%></th>
+            <th>
+                <%=link_to new_admins_backoffice_member_path, class:"btn btn-success btn-circle" do%>
+                    <i class="fas fa-plus"></i>
+                <%end%>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @members.each do |member|%>
+            <tr>
+                <%# <td><%=member.id%>
+                <%# <td><%=image_tag(member.avatar, style:"width:50px")%>
+                <td><%=member.first_name%></td>
+                <td><%=member.last_name%></td>
+                <td class="hidding"><%=member.email%></td>
+                <td class="hidding"><%=member.cell_phone%></td>
+                <td class="hidding"><%=member.birthdate%></td>
+                <td class="hidding"><%=member.address%></td>
+                <td style="width:120px">
+                    <%=link_to edit_admins_backoffice_member_path(member), class:"btn btn-primary btn-circle" do%>
+                        <i class="fas fa-edit"></i>
+                    <%end%>
+                    
+                    <%=link_to admins_backoffice_member_path(member), method: :delete,
+                        class:"btn btn-danger btn-circle", 
+                        data: {confirm:t('messages.confirm_with', item: member.first_name)} do%>
+                        <i class="fas fa-trash"></i>
+                    <%end%>
+                </td>
+            </tr>
+        <%end%>    
+        </tbody>
+    </table>
+     <%= paginate @members%>
+   
+    </div>
+</div>

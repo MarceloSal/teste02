@@ -1,0 +1,48 @@
+'pt-BR':
+  activerecord:
+    models:
+      admin:
+        one: Administrador
+        other: Administradores
+      user:
+        one: Usuário
+        other: Usuários 
+      member:
+        one: Membro
+        other: Membros 
+      archive:
+        one: Arquivo
+        other: Arquivos    
+    attributes:
+      admin:
+        id: Código
+        first_name: Nome
+        last_name: Sobrenome
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação da senha
+        created_at: Criado em
+        updated_at: Atualizado em
+      member:
+        id: Código
+        first_name: Nome
+        last_name: Sobrenome
+        email: Email
+        cell_phone: Celular
+        birthdate: Data de nascimento
+        address: Endereço
+        created_at: Criado em
+        updated_at: Atualizado em
+      archive:
+        id: Código
+        title: Titulo
+        description: Descrição
+        file: Arquivo
+        created_at: Criado em
+        updated_at: Atualizado em
+      user:
+        id: Código
+        email: Email
+        created_at: Criado em
+        updated_at: Atualizado em
+      # will translate User attribute "login" as "Handle"

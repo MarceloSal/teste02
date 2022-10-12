@@ -1,0 +1,73 @@
+<%# <h1>Editando</h1> %>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+       
+</head>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h1><%=action_message%></h1>
+        
+        <div class="clearfix"></div>
+    </div>
+     <%if @member.errors.any?%>
+        <div class="alert alert-danger alert-dismissible " role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+            </button>
+            <ul>
+               <% @member.errors.full_messages.each do |message| %>
+                 <li><%=message%></li>
+               <%end%>
+            </ul>
+        </div>
+    <%end%>
+   
+    <div class="x_content">
+
+        <!-- start form for validation -->
+        
+        <%= form_with(model: [ :admins_backoffice, @member ], local: true) do |form| %>
+            
+            <%# <%=form.label :avatar%>
+            <%# <%= form.file_field :avatar %>
+                       
+            <%=form.label :first_name%>
+            <%=form.text_field :first_name, class:"form-control" %>
+          
+            <%=form.label :last_name%>
+            <%=form.text_field :last_name, class:"form-control" %>
+
+            <%=form.label :email%>
+            <%=form.email_field :email, class:"form-control" %>
+           
+            <%=form.label :cell_phone%>
+            <%=form.telephone_field :cell_phone, class:"form-control" %>
+
+            <%=form.label :birthdate%>
+            <%=form.date_field :birthdate, class:"form-control" %>
+
+            <%=form.label :address%>
+            <%=form.text_field :address, class:"form-control" %>
+           
+            <br>
+            <button type='submit' class="btn btn-primary">Salvar</button>
+            <%=link_to 'Voltar', admins_backoffice_members_path, class:"btn btn-primary"%>
+
+        <%end%>
+        <!-- end form for validations -->
+        <script>
+        $(function(){
+            $('.datepicker').datepicker();
+        });
+    </script>
+    </div>
+</div>
+</html>

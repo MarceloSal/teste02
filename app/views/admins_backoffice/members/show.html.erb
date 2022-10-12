@@ -1,0 +1,70 @@
+
+
+<h1>Arquivos</h1>
+
+
+<div class="x_panel">
+    <div class="x_title">
+    <%# <h2>Hover rows <small>Try hovering over the rows</small></h2> %>
+    
+    <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <table class="table table-hover">
+        <thead>
+
+        <thead>
+        <tr>
+            <th>#</th>
+            <%# <th>Avatar</th> %>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Data de nascimento</th>
+            <th>Endereço</th>
+        <tr>
+        
+        </thead>
+        
+        <tbody>
+            <tr> 
+                <th><%=@member.id%></th>   
+                <%# <th><%= image_tag(member.avatar, style:"width:50px")%>
+                <th><%=@member.first_name%></th>
+                <th><%= @member.last_name %></th>
+                <th><%= @member.email %></th>
+                <th><%= @member.cell_phone %></th>
+                <th><%= @member.birthdate %></th>
+                <th><%= @member.address %></th>
+                
+            </tr>
+        </tbody>
+        <tr>
+            <td style="width:120px">
+                <%=link_to 'Back', admins_backoffice_archives_path %>
+            </td>
+        </tr>
+    </table>
+    
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

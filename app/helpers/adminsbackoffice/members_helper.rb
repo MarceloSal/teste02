@@ -1,0 +1,2 @@
+module Adminsbackoffice::MembersHelper
+end
